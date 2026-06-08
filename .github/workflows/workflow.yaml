@@ -23,6 +23,11 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}          
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
+      - name: Verify secrets exist
+         run:
+          echo "Username length: ${#DOCKERHUB_USERNAME}"
+          echo "Repo: $REPOSITORY_NAME"
+
       - name: Get Current Date 
         id: date
         run: echo "::set-output name=date::$(date +'%Y-%m-%d--%M-%S')"
