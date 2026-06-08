@@ -24,9 +24,9 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Verify secrets exist
-         run:
-          echo "Username length: ${#DOCKERHUB_USERNAME}"
-          echo "Repo: $REPOSITORY_NAME"
+        run: |
+        echo "Username length: ${#DOCKERHUB_USERNAME}"
+        echo "Repo: $REPOSITORY_NAME"      
 
       - name: Get Current Date 
         id: date
