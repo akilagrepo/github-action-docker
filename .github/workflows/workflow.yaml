@@ -1,9 +1,7 @@
 name: 'Docker'
 
 on:
-  pull_request:
-    types:
-      - closed
+  push:
     branches:    
       - 'main'
 
@@ -13,9 +11,7 @@ env:
   REPOSITORY_NAME: ${{ secrets.REPOSITORY_NAME}}
 
 jobs:
-  build_and_push_to_registry:
-    name: Build and push Docker image to Docker Hub
-    if: github.event.pull_request.merged == true
+  build-and-push:
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repo
